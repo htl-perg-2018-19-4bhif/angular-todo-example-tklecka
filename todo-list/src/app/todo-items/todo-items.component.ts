@@ -10,7 +10,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class TodoItemsComponent implements OnInit {
 
-  todoItem: IToDoItem;
   todoItems: IToDoItem[] = [];
 
   constructor(private http: HttpService) { }

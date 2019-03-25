@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatCardModule, MatSidenavModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatSidenavModule, MatButtonModule, MatIconModule, MatFormFieldModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatSidenavModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
   exports: [MatToolbarModule],
   providers: [],
