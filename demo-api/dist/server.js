@@ -6,8 +6,8 @@ const Koa = require("koa");
 const bodyParser = require("koa-bodyparser");
 const Router = require("koa-router");
 const people = [{ name: 'Adam' }, { name: 'Eve' }];
-const todos = [];
-let lastId = 0;
+const todos = [{ id: 0, assignedTo: 'Adam', description: 'Test', done: false }, { id: 1, assignedTo: 'Eve', description: 'Test 2', done: true }];
+let lastId = 2;
 const router = new Router();
 router.get('/api/people', async (context) => {
     // Return people
@@ -35,7 +35,7 @@ router.post('/api/todos', async (context) => {
         context.body = { description: 'Missing description' };
         return;
     }
-    const newItem = { id: lastId++, description: body.description };
+    const newItem = { id: lastId++, description: body.description, done: body.done };
     // Check if assigned-to person exists
     if (body.assignedTo) {
         if (people.find(p => p.name === body.assignedTo)) {

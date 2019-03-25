@@ -1,5 +1,5 @@
 import * as cors from '@koa/cors'
-import {BAD_REQUEST, CREATED, NO_CONTENT, NOT_FOUND} from 'http-status-codes';
+import { BAD_REQUEST, CREATED, NO_CONTENT, NOT_FOUND } from 'http-status-codes';
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
@@ -12,12 +12,12 @@ interface ITodoItem {
   id: number;
   assignedTo?: string;
   description: string;
-  done?: boolean
+  done: boolean;
 }
 
-const people: IPerson[] = [{name: 'Adam'}, {name: 'Eve'}];
-const todos: ITodoItem[] = [];
-let lastId = 0;
+const people: IPerson[] = [{ name: 'Adam' }, { name: 'Eve' }];
+const todos: ITodoItem[] = [{id: 0, assignedTo: 'Adam', description: 'Test', done: false},{id: 1, assignedTo: 'Eve', description: 'Test 2', done: true}];
+let lastId = 2;
 
 const router = new Router();
 
@@ -47,11 +47,10 @@ router.post('/api/todos', async (context) => {
   if (!body.description) {
     // description field is mandatory
     context.status = BAD_REQUEST;
-    context.body = {description: 'Missing description'};
+    context.body = { description: 'Missing description' };
     return;
   }
-
-  const newItem: ITodoItem = {id: lastId++, description: body.description};
+  const newItem: ITodoItem = { id: lastId++, description: body.description, done: body.done };
 
   // Check if assigned-to person exists
   if (body.assignedTo) {
@@ -59,7 +58,7 @@ router.post('/api/todos', async (context) => {
       newItem.assignedTo = body.assignedTo;
     } else {
       context.status = NOT_FOUND;
-      context.body = {description: 'Unknown person'};
+      context.body = { description: 'Unknown person' };
       return;
     }
   }
@@ -98,7 +97,7 @@ router.patch('/api/todos/:id', async (context) => {
       todoItem.assignedTo = body.assignedTo;
     } else {
       context.status = NOT_FOUND;
-      context.body = {description: 'Unknown person'};
+      context.body = { description: 'Unknown person' };
       return;
     }
   }
