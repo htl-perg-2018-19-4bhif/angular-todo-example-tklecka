@@ -7,3 +7,8 @@
   .item-container {
      height: 100%;
   }
+
+  .addFAB {
+     float: right;
+     margin-right: 10pt;
+  }
