@@ -7,6 +7,7 @@ import { MatToolbarModule, MatCardModule, MatSidenavModule, MatButtonModule, Mat
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule
   ],
   exports: [MatToolbarModule],
   providers: [],
