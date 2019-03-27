@@ -3,16 +3,28 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatCardModule, MatSidenavModule, MatButtonModule, MatIconModule, MatFormFieldModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatCardModule,
+  MatSidenavModule,
+  MatButtonModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDialogModule
+} from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { HttpClientModule } from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemsComponent
+    TodoItemsComponent,
+    EditDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -25,10 +37,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    NgbModule
+    NgbModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDialogModule
   ],
   exports: [MatToolbarModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditDialogComponent]
 })
 export class AppModule { }

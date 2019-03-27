@@ -1,6 +1,6 @@
 <div class="container-fluid" fxLayoutAlign="space-between">
   <div class="row">
-  <div *ngFor="let todo of todoItems" class="card-position">
+  <div *ngFor="let todo of todoItemsFiltered" class="card-position">
     <mat-card class="col-sm">
       <mat-card-title fxLayout="row">
         <span>{{todo.description}}</span>
@@ -14,7 +14,7 @@
         <button mat-button (click)="deleteItem(todo.id)">
           <mat-icon aria-label="delete">delete</mat-icon> Delete
         </button>
-        <button mat-button (click)="editItem()">
+        <button mat-button (click)="editItem(todo)">
           <mat-icon aria-label="create">create</mat-icon> Edit
         </button>
         <button mat-button (click)="setDone(todo)">

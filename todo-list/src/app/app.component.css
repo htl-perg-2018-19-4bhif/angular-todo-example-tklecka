@@ -12,3 +12,12 @@
      float: right;
      margin-right: 10pt;
   }
+
+  .search-form {
+   width: 80%;
+   align-items: center;
+}
+
+.navbar {
+   height: 5rem;
+}

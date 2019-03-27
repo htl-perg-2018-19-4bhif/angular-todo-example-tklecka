@@ -1,8 +1,24 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="navbar" color="primary">
   <span>ToDo List</span>
-  <!-- This fills the remaining space of the current row -->
-  <span class="fill-remaining-space"></span>
-  <span>© Tim Klecka</span>
+
+  <section>
+      <mat-form-field>
+        <mat-select [(value)]="selectedPerson" (valueChange)="updateList()">
+          <mat-option value="none">None</mat-option>
+          <div *ngFor="let person of personItems">
+            <mat-option value="{{person.name}}">{{person.name}}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-select [(value)]="selectedDone" (valueChange)="updateList()">
+            <mat-option value=true>Done</mat-option>
+            <mat-option value=false>Undone</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </section>
+
 </mat-toolbar>
 <mat-sidenav-container class="item-container">
   <app-todo-items></app-todo-items>

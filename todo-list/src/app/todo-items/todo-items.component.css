@@ -8,3 +8,8 @@
      margin-top: 1rem;
      margin-left: 1rem;
   }
+
+  .search-form {
+     width: 80%;
+     align-self: auto;
+  }
