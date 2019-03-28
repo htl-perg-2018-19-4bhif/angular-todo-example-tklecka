@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: IPerson) => {
-    });
+    },(res: HttpErrorResponse) => this.onError(res.message), () => this.updateList());
   }
 
   getItems() {

@@ -12,6 +12,6 @@
   </mat-select>
 </mat-form-field>
 
-<button mat-button (click)="saveToDo(box.value)">
+<button mat-button [(value)]="desc" (click)="saveToDo(box.value)">
   <mat-icon aria-label="save">save_alt</mat-icon>Save
 </button>

@@ -13,8 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class NewDialogComponent {
   todoItem: IToDoItem = {assignedTo: 'none', description: '', done: false};
   personItems: IPerson[];
-  selectedPerson: string;
-  desc: string;
+  selectedPerson: string = 'none';
+  desc: string = '';
   done: boolean = false;
 
   constructor(
