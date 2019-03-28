@@ -22,7 +22,7 @@
 </mat-toolbar>
 <mat-sidenav-container class="item-container">
   <app-todo-items></app-todo-items>
-  <button mat-fab class="addFAB" color="primary">
+  <button mat-fab class="addFAB" color="primary" (click)="openDialog()">
     <mat-icon aria-label="add">add</mat-icon>
   </button>
 </mat-sidenav-container>

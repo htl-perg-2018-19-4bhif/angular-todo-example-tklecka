@@ -14,7 +14,7 @@ export class HttpService {
   url = 'http://localhost:8081/api/';
 
   postTodo(todoitem: IToDoItem): Observable<IToDoItem> {
-    return this.http.post<IToDoItem>(`${this.url}todos/${todoitem.id}`, todoitem);
+    return this.http.post<IToDoItem>(`${this.url}todos/`, todoitem);
   }
 
   getToDo(): Observable<IToDoItem[]> {

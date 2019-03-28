@@ -1,0 +1,17 @@
+<form>
+  <mat-form-field>
+    <input matInput #box [(value)]="desc" placeholder="description">
+  </mat-form-field>
+</form>
+<mat-form-field>
+  <mat-select [(value)]="selectedPerson">
+    <mat-option value="none">None</mat-option>
+    <div *ngFor="let person of personItems">
+      <mat-option value="{{person.name}}">{{person.name}}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
+
+<button mat-button (click)="saveToDo(box.value)">
+  <mat-icon aria-label="save">save_alt</mat-icon>Save
+</button>

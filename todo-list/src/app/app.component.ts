@@ -3,6 +3,8 @@ import { HttpService } from './services/http.service';
 import { IPerson } from './interfaces/IPerson';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
+import { NewDialogComponent } from './new-dialog/new-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit {
   selectedPerson = 'none';
   selectedDone = 'true';
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, public dialog: MatDialog) { }
 
   @ViewChild(TodoItemsComponent) child: TodoItemsComponent;
 
@@ -29,6 +31,17 @@ export class AppComponent implements OnInit {
 
   onError(error: any) {
     console.error(error);
+  }
+
+  openDialog(): void {
+    const dialogData = [this.personItems];
+    const dialogRef = this.dialog.open(NewDialogComponent, {
+      width: '250px',
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe((result: IPerson) => {
+    });
   }
 
   getItems() {

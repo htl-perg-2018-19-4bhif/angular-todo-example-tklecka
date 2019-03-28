@@ -19,12 +19,14 @@ import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { NewDialogComponent } from './new-dialog/new-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemsComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    NewDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +47,6 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
   exports: [MatToolbarModule],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [EditDialogComponent]
+  entryComponents: [EditDialogComponent,NewDialogComponent]
 })
 export class AppModule { }
